@@ -40,8 +40,20 @@ export default function Header() {
                 <span className="rounded-full border border-on-band/30 px-3 py-1 text-xs font-semibold text-on-band">
                     GUITAR
                 </span>
-                <Bell className="h-4.5 w-4.5 text-on-band" />
-                <Search className="h-4.5 w-4.5 text-on-band" />
+                <button
+                    type="button"
+                    aria-label="Notifications"
+                    className="-m-2 p-2 text-on-band"
+                >
+                    <Bell className="h-4.5 w-4.5" aria-hidden="true" />
+                </button>
+                <button
+                    type="button"
+                    aria-label="Search"
+                    className="-m-2 p-2 text-on-band"
+                >
+                    <Search className="h-4.5 w-4.5" aria-hidden="true" />
+                </button>
 
                 <div className="relative" ref={menuRef}>
                     <button
