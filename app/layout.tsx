@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={inter.className}
+      className={inter.variable}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
