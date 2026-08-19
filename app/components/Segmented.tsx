@@ -30,7 +30,7 @@ export default function Segmented<T extends string>({
           } ${
             value === opt.value
               ? "bg-foreground text-background"
-              : "text-foreground"
+              : "text-foreground hover:bg-foreground/10"
           }`}
         >
           {opt.label}

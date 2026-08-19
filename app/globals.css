@@ -28,14 +28,22 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-panel: var(--panel);
   --color-band: var(--band);
   --color-on-band: var(--on-band);
+  --color-panel: var(--panel);
   --font-sans: var(--font-inter);
   --container-shell: 660px;
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
 }

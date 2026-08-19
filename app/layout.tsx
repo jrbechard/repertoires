@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ThemeScript from "./components/ThemeScript";
 import { PrefsProvider } from "./components/Prefs";
 
@@ -25,12 +26,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <ThemeScript />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <PrefsProvider>
           <Header />
           <main className="mx-auto w-full max-w-shell px-4 py-6">
             {children}
           </main>
+          <Footer />
         </PrefsProvider>
       </body>
     </html>

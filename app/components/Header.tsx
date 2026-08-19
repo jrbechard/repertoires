@@ -43,14 +43,14 @@ export default function Header() {
                 <button
                     type="button"
                     aria-label="Notifications"
-                    className="-m-2 p-2 text-on-band"
+                    className="-m-2 rounded-full p-2 text-on-band hover:bg-on-band/15"
                 >
                     <Bell className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>
                 <button
                     type="button"
                     aria-label="Search"
-                    className="-m-2 p-2 text-on-band"
+                    className="-m-2 rounded-full p-2 text-on-band hover:bg-on-band/15"
                 >
                     <Search className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>
@@ -60,7 +60,7 @@ export default function Header() {
                         onClick={() => setMenuOpen((open) => !open)}
                         aria-expanded={menuOpen}
                         aria-haspopup="true"
-                        className="flex h-8 w-8 items-center justify-center rounded-full bg-on-band/15 text-xs font-semibold text-on-band"
+                        className="flex h-8 w-8 items-center justify-center rounded-full bg-on-band/15 text-xs font-semibold text-on-band hover:bg-on-band/25"
                     >
                         JR
                     </button>
