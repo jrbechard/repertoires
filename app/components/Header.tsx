@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Bell, Search } from "lucide-react";
+import Logo from "./Logo";
+import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,10 +11,10 @@ export default function Header() {
   const [lang, setLang] = useState("en");
 
   return (
-    <header className="flex items-center justify-between bg-black px-3 py-3">
-      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white font-bold text-black">
-        R
-      </div>
+    <header className="flex items-center justify-between bg-black px-4 py-4">
+        <Link href="/" className="flex items-center -m-2 p-2">
+          <Logo className="h-8 w-auto" />
+        </Link>
 
       <div className="flex items-center gap-4">
         <span className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold text-white">
