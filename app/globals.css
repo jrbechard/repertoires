@@ -3,19 +3,24 @@
 :root {
   --background: #eae9e6;
   --foreground: #0f0f11;
+  --panel: #f6f5f3;
+  --band: #0f0f11;
+  --on-band: #eae9e6;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: #0f0f11;
+    --background: #1b1a1e;
+    --panel: #26242a;
     --foreground: #eae9e6;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --background: #0f0f11;
+  --background: #1b1a1e;
+  --panel: #26242a;
   --foreground: #eae9e6;
   color-scheme: dark;
 }
@@ -23,9 +28,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-band: var(--band);
+  --color-on-band: var(--on-band);
   --font-sans: var(--font-inter);
+  --container-shell: 660px;
 }
-
 body {
   background: var(--background);
   color: var(--foreground);

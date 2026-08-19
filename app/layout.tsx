@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import ThemeScript from "./components/ThemeScript";
+import { PrefsProvider } from "./components/Prefs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,13 +20,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={inter.variable}
-    >
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="mx-auto w-full max-w-[660px] px-4 py-6">{children}</main>
+        <PrefsProvider>
+          <Header />
+          <main className="mx-auto w-full max-w-shell px-4 py-6">
+            {children}
+          </main>
+        </PrefsProvider>
       </body>
     </html>
   );
