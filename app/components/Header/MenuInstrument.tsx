@@ -12,7 +12,7 @@ const INSTRUMENTS = [
 
 type Props = { open: boolean; onToggle: () => void; onClose: () => void };
 
-export default function InstrumentMenu({ open, onToggle, onClose }: Props) {
+export default function MenuInstrument({ open, onToggle, onClose }: Props) {
     const { instrument, setInstrument } = usePrefs();
 
     return (

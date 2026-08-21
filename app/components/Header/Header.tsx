@@ -4,15 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import Logo from "../Logo";
-import MenuAccount from "./MenuAccount";
 import MenuInstrument from "./MenuInstrument";
 import MenuNotifications from "./MenuNotifications";
+import MenuAccount from "./MenuAccount";
+import SearchBar from "./SearchBar";
+import SearchField from "./SearchField";
 
 type Menu = "instrument" | "notifications" | "account" | null;
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState<Menu>(null);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [query, setQuery] = useState("");
     const navRef = useRef<HTMLDivElement>(null);
+    const searchButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         if (!openMenu) return;
@@ -36,13 +41,37 @@ export default function Header() {
         setOpenMenu((m) => (m === menu ? null : menu));
     }
 
+    function openSearch() {
+        setOpenMenu(null);
+        setSearchOpen(true);
+    }
+
+    function closeSearch() {
+        setSearchOpen(false);
+        searchButtonRef.current?.focus();
+    }
+
+    if (searchOpen) {
+        return (
+            <header className="flex items-center bg-band px-4 py-4 desk:hidden">
+                <SearchBar value={query} onChange={setQuery} onClose={closeSearch} />
+            </header>
+        );
+    }
+
     return (
-        <header className="flex items-center justify-between bg-band px-4 py-4">
+        <header className="flex items-center gap-4 bg-band px-4 py-4">
             <Link href="/" className="flex items-center -m-2 p-2">
                 <Logo className="h-8 w-auto" />
             </Link>
 
-            <div className="flex items-center gap-4" ref={navRef}>
+            <div className="hidden flex-1 justify-center desk:flex">
+                <div className="w-full max-w-sm">
+                    <SearchField value={query} onChange={setQuery} />
+                </div>
+            </div>
+
+            <div className="ml-auto flex items-center gap-4" ref={navRef}>
                 <MenuInstrument
                     open={openMenu === "instrument"}
                     onToggle={() => toggle("instrument")}
@@ -55,9 +84,11 @@ export default function Header() {
                 />
 
                 <button
+                    ref={searchButtonRef}
                     type="button"
+                    onClick={openSearch}
                     aria-label="Search"
-                    className="-m-2 rounded-full p-2 text-on-band hover:bg-on-band/10"
+                    className="-m-2 flex rounded-full p-2 text-on-band hover:bg-on-band/10 desk:hidden"
                 >
                     <Search className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>

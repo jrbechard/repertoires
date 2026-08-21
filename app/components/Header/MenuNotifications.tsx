@@ -6,7 +6,7 @@ type Props = { open: boolean; onToggle: () => void };
 
 export default function MenuNotifications({ open, onToggle }: Props) {
     return (
-        <div className="relative">
+        <div className="relative flex">
             <button
                 type="button"
                 onClick={onToggle}
