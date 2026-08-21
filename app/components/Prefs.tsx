@@ -22,6 +22,9 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("auto");
   const [lang, setLangState] = useState<Lang>("en");
 
+  // Reads localStorage after mount, since the server cannot see it. One extra
+  // render on mount is the accepted cost of the no-flash pattern.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     try {
       const i = localStorage.getItem("instrument");

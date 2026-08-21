@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Bell, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 import Logo from "../Logo";
-import MenuInstrument from "./MenuInstrument";
 import MenuAccount from "./MenuAccount";
+import MenuInstrument from "./MenuInstrument";
+import MenuNotifications from "./MenuNotifications";
 
-type Menu = "instrument" | "account" | null;
+type Menu = "instrument" | "notifications" | "account" | null;
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState<Menu>(null);
@@ -48,13 +49,11 @@ export default function Header() {
                     onClose={() => setOpenMenu(null)}
                 />
 
-                <button
-                    type="button"
-                    aria-label="Notifications"
-                    className="-m-2 rounded-full p-2 text-on-band hover:bg-on-band/10"
-                >
-                    <Bell className="h-4.5 w-4.5" aria-hidden="true" />
-                </button>
+                <MenuNotifications
+                    open={openMenu === "notifications"}
+                    onToggle={() => toggle("notifications")}
+                />
+
                 <button
                     type="button"
                     aria-label="Search"
