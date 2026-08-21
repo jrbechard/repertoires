@@ -22,9 +22,9 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("auto");
   const [lang, setLangState] = useState<Lang>("en");
 
-  // Reads localStorage after mount, since the server cannot see it. One extra
-  // render on mount is the accepted cost of the no-flash pattern.
-  // eslint-disable-next-line react-hooks/set-state-in-effect
+  /* eslint-disable react-hooks/set-state-in-effect --
+     Reads localStorage after mount, since the server cannot see it. One extra
+     render on mount is the accepted cost of the no-flash pattern. */
   useEffect(() => {
     try {
       const i = localStorage.getItem("instrument");
@@ -35,6 +35,7 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
       if (l === "en" || l === "fr") setLangState(l);
     } catch {}
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     document.documentElement.lang = lang;
