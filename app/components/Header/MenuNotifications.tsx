@@ -13,7 +13,7 @@ export default function MenuNotifications({ open, onToggle }: Props) {
                 aria-expanded={open}
                 aria-haspopup="true"
                 aria-label="Notifications"
-                className="-m-2 rounded-full p-2 text-on-band hover:bg-on-band/10"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-on-band hover:bg-on-band/10"
             >
                 <Bell className="h-4.5 w-4.5" aria-hidden="true" />
             </button>

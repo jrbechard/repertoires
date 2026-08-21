@@ -1,3 +1,3 @@
-export default function Home() {
-  return <h1>Hello World!</h1>;
+export default function MyRepertoires() {
+  return <h1 className="text-2xl font-semibold">My repertoires</h1>;
 }

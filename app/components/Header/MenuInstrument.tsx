@@ -22,14 +22,14 @@ export default function MenuInstrument({ open, onToggle, onClose }: Props) {
                 onClick={onToggle}
                 aria-expanded={open}
                 aria-haspopup="true"
-                className="flex items-center gap-1 rounded-full border border-on-band/30 py-1 pl-3 pr-2 text-xs font-semibold uppercase text-on-band hover:bg-on-band/10"
+                className="flex h-8 items-center gap-1 rounded-full border border-on-band/30 pl-3 pr-2 text-xs font-semibold uppercase text-on-band hover:bg-on-band/10"
             >
                 {instrument}
                 <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
 
             {open && (
-                <div className="absolute right-0 top-9 w-40 rounded-lg border border-foreground/10 bg-panel p-1 shadow-lg">
+                <div className="absolute right-0 top-11 w-40 rounded-lg border border-foreground/10 bg-panel p-1 shadow-lg">
                     {INSTRUMENTS.map((opt) => (
                         <button
                             key={opt.value}

@@ -60,38 +60,36 @@ export default function Header() {
     }
 
     return (
-        <header className="flex items-center gap-4 bg-band px-4 py-4">
+        <header className="relative flex items-center gap-4 bg-band px-4 py-4">
             <Link href="/" className="flex items-center -m-2 p-2">
                 <Logo className="h-8 w-auto" />
             </Link>
 
-            <div className="hidden flex-1 justify-center desk:flex">
-                <div className="w-full max-w-sm">
-                    <SearchField value={query} onChange={setQuery} />
-                </div>
+            <div className="absolute left-1/2 hidden w-full max-w-md -translate-x-1/2 desk:block">
+                <SearchField value={query} onChange={setQuery} />
             </div>
 
             <div className="ml-auto flex items-center gap-4" ref={navRef}>
-                <MenuInstrument
-                    open={openMenu === "instrument"}
-                    onToggle={() => toggle("instrument")}
-                    onClose={() => setOpenMenu(null)}
-                />
+                <button
+                    ref={searchButtonRef}
+                    type="button"
+                    onClick={openSearch}
+                    aria-label="Search"
+                    className="flex h-8 w-8 items-center justify-center rounded-full text-on-band hover:bg-on-band/10 desk:hidden"
+                >
+                    <Search className="h-4.5 w-4.5" aria-hidden="true" />
+                </button>
 
                 <MenuNotifications
                     open={openMenu === "notifications"}
                     onToggle={() => toggle("notifications")}
                 />
 
-                <button
-                    ref={searchButtonRef}
-                    type="button"
-                    onClick={openSearch}
-                    aria-label="Search"
-                    className="-m-2 flex rounded-full p-2 text-on-band hover:bg-on-band/10 desk:hidden"
-                >
-                    <Search className="h-4.5 w-4.5" aria-hidden="true" />
-                </button>
+                <MenuInstrument
+                    open={openMenu === "instrument"}
+                    onToggle={() => toggle("instrument")}
+                    onClose={() => setOpenMenu(null)}
+                />
 
                 <MenuAccount
                     open={openMenu === "account"}
