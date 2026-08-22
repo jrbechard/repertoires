@@ -97,6 +97,7 @@ export default function Header() {
                 <MenuAccount
                     open={openMenu === "account"}
                     onToggle={() => toggle("account")}
+                    onClose={() => setOpenMenu(null)}
                 />
             </div>
         </header>
