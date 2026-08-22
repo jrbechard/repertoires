@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { usePrefs } from "../Prefs";
 import Segmented from "../Segmented";
+import Avatar from "../Avatar";
 
 type Props = { open: boolean; onToggle: () => void };
 
@@ -16,9 +17,10 @@ export default function MenuAccount({ open, onToggle }: Props) {
                 onClick={onToggle}
                 aria-expanded={open}
                 aria-haspopup="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-on-band/15 text-xs font-semibold text-on-band hover:bg-on-band/25"
+                aria-label="Account"
+                className="group flex rounded-full"
             >
-                JR
+                <Avatar className="h-8 w-8 bg-on-band/15 text-xs text-on-band group-hover:bg-on-band/25" />
             </button>
 
             {open && (
