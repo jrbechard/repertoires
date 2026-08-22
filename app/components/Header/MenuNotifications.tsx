@@ -15,7 +15,7 @@ export default function MenuNotifications({ open, onToggle }: Props) {
                 aria-label="Notifications"
                 className="flex h-8 w-8 items-center justify-center rounded-full text-on-band hover:bg-on-band/10"
             >
-                <Bell className="h-4.5 w-4.5" aria-hidden="true" />
+                <Bell className="h-5 w-5" aria-hidden="true" />
             </button>
 
             {open && (

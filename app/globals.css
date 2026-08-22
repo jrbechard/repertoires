@@ -4,6 +4,7 @@
   --background: #eae9e6;
   --foreground: #0f0f11;
   --panel: #f6f5f3;
+  --footer: #e2e0dc;
   --band: #0f0f11;
   --on-band: #eae9e6;
   --shell: 660px;
@@ -14,6 +15,7 @@
   :root:not([data-theme="light"]) {
     --background: #1b1a1e;
     --panel: #26242a;
+    --footer: #232126;
     --foreground: #eae9e6;
     color-scheme: dark;
   }
@@ -22,6 +24,7 @@
 :root[data-theme="dark"] {
   --background: #1b1a1e;
   --panel: #26242a;
+  --footer: #232126;
   --foreground: #eae9e6;
   color-scheme: dark;
 }
@@ -32,6 +35,7 @@
   --color-band: var(--band);
   --color-on-band: var(--on-band);
   --color-panel: var(--panel);
+  --color-footer: var(--footer);
   --font-sans: var(--font-inter);
   --container-shell: var(--shell);
   --breakpoint-desk: 900px;

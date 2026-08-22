@@ -16,7 +16,7 @@ export default function MenuInstrument({ open, onToggle, onClose }: Props) {
     const { instrument, setInstrument } = usePrefs();
 
     return (
-        <div className="relative">
+        <div className="relative flex">
             <button
                 type="button"
                 onClick={onToggle}
@@ -29,7 +29,7 @@ export default function MenuInstrument({ open, onToggle, onClose }: Props) {
             </button>
 
             {open && (
-                <div className="absolute right-0 top-11 w-40 rounded-lg border border-foreground/10 bg-panel p-1 shadow-lg">
+                <div className="absolute left-0 top-11 w-40 rounded-lg border border-foreground/10 bg-panel p-1 shadow-lg">
                     {INSTRUMENTS.map((opt) => (
                         <button
                             key={opt.value}
