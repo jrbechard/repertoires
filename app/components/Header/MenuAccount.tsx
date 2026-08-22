@@ -10,7 +10,7 @@ export default function MenuAccount({ open, onToggle }: Props) {
     const { theme, setTheme, lang, setLang } = usePrefs();
 
     return (
-        <div className="relative">
+        <div className="relative hidden desk:block">
             <button
                 type="button"
                 onClick={onToggle}
