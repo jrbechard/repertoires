@@ -53,7 +53,7 @@ export default function Header() {
 
     if (searchOpen) {
         return (
-            <header className="flex items-center bg-band px-4 py-4 shadow-[0_-100vh_0_var(--band)] desk:hidden">
+            <header className="flex items-center bg-band px-4 py-4 desk:hidden">
                 <SearchBar value={query} onChange={setQuery} onClose={closeSearch} />
             </header>
         );
@@ -62,7 +62,7 @@ export default function Header() {
     return (
     <header
         ref={navRef}
-        className="relative flex items-center gap-4 bg-band px-4 py-4 shadow-[0_-100vh_0_var(--band)]"
+        className="relative flex items-center gap-4 bg-band px-4 py-4"
     >
             <Link href="/" className="flex items-center -m-2 p-2">
                 <Logo className="h-8 w-auto" />
