@@ -27,7 +27,7 @@ export default function SearchField({ value, onChange, onEscape, inputRef }: Pro
                 }}
                 placeholder="Search songs and repertoires"
                 aria-label="Search"
-                className="h-8 w-full rounded-full bg-on-band/10 pl-9 pr-3 text-sm text-on-band placeholder:text-on-band/50 focus:outline-none"
+                className="h-8 w-full rounded-full bg-on-band/10 pl-9 pr-3 text-base text-on-band placeholder:text-on-band/50 focus:outline-none desk:text-sm"
             />
         </div>
     );

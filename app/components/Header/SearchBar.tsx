@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import SearchField from "./SearchField";
 
 type Props = {
@@ -19,20 +19,20 @@ export default function SearchBar({ value, onChange, onClose }: Props) {
 
     return (
         <div className="flex w-full items-center gap-2">
+            <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close search"
+                className="-ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-on-band hover:bg-on-band/10"
+            >
+                <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+            </button>
             <SearchField
                 value={value}
                 onChange={onChange}
                 onEscape={onClose}
                 inputRef={inputRef}
             />
-            <button
-                type="button"
-                onClick={onClose}
-                aria-label="Close search"
-                className="-m-2 flex rounded-full p-2 text-on-band hover:bg-on-band/10"
-            >
-                <X className="h-4.5 w-4.5" aria-hidden="true" />
-            </button>
         </div>
     );
 }

@@ -69,7 +69,18 @@ export default function Header() {
                 <SearchField value={query} onChange={setQuery} />
             </div>
 
-            <div className="ml-auto flex items-center gap-4" ref={navRef}>
+            <div className="ml-auto flex items-center gap-1 desk:gap-3" ref={navRef}>
+                <MenuInstrument
+                    open={openMenu === "instrument"}
+                    onToggle={() => toggle("instrument")}
+                    onClose={() => setOpenMenu(null)}
+                />
+
+                <MenuNotifications
+                    open={openMenu === "notifications"}
+                    onToggle={() => toggle("notifications")}
+                />
+
                 <button
                     ref={searchButtonRef}
                     type="button"
@@ -79,17 +90,6 @@ export default function Header() {
                 >
                     <Search className="h-4.5 w-4.5" aria-hidden="true" />
                 </button>
-
-                <MenuNotifications
-                    open={openMenu === "notifications"}
-                    onToggle={() => toggle("notifications")}
-                />
-
-                <MenuInstrument
-                    open={openMenu === "instrument"}
-                    onToggle={() => toggle("instrument")}
-                    onClose={() => setOpenMenu(null)}
-                />
 
                 <MenuAccount
                     open={openMenu === "account"}
